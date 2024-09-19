@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"net"
+	"net/http"
+	_ "net/http/pprof"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -21,6 +23,9 @@ func (s ss) DoIt(*pb.Request, grpc.ServerStreamingServer[pb.Response]) error {
 }
 
 func main() {
+	go func() {
+		log.Println(http.ListenAndServe(":6060", nil))
+	}()
 	lis, err := net.Listen("tcp", ":50551")
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
