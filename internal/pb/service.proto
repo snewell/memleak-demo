@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "github.com/snewell/memleak-demo/internal/pb";
+
+package service;
+
+service SS {
+  rpc DoIt (Request) returns (stream Response) {}
+}
+
+message Request {
+}
+
+message Response {
+}
