@@ -1,9 +1,18 @@
 memleak-demo
 ============
+Current Status
+--------------
+This bug is fixed using the PR linked in the bug report based on my testing of
+multiple projects.  The original description is included below.
+
+
+Original
+--------
 This is an attempt to create a small example of a memory leak using XDS with the
 go version of grpc.  It's designed to be as self-contained as possible.
 
 Upstream bug: https://github.com/grpc/grpc-go/issues/7657
+
 
 
 Building
